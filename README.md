@@ -2,6 +2,8 @@
 
 A small mood-based AI chatbot that supports both a terminal interface and a styled Streamlit web UI. The bot can respond in different tones, making it easy to switch between playful, calm, intense, or cheerful conversations.
 
+Deployed Link: https://moodychatbot-bknrewlrteokopyeyp2mtc.streamlit.app/
+
 ## Tech Stack
 
 | Layer | Stack |
