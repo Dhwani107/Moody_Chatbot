@@ -2,10 +2,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from langchain_mistralai import ChatMistralAI, ChatMistralAI
+from langchain_mistralai import ChatMistralAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
-model=ChatMistralAI(model="mistral-small-2506", temperature=0.9 )
+model = ChatMistralAI(model="mistral-small-2506", temperature=0.9)
 
 print("Choose a mood for the chatbot:")
 print("1. Happy")
@@ -26,9 +26,7 @@ else:
     print("Invalid choice. Using default tone.")
     system_message = SystemMessage(content="You are a sad ai agent and reply in a sad tone")
 
-message = [
-    SystemMessage(content=mood)
-]
+message = [system_message]
 
 
 print("----------WELCOME TO THE CHATBOT----------")
@@ -36,10 +34,11 @@ print("Type 0 to end the conversation.")
 while True:
 
     prompt = input("You:")
-    message.append(HumanMessage(content=prompt))
     if prompt == "0":
         print("Goodbye!")
         break
+
+    message.append(HumanMessage(content=prompt))
     response = model.invoke(message)
     message.append(AIMessage(content=response.content))
     print("Bot:", response.content)
